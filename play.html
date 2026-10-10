@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Play Blockcraft | 2D Minecraft in your browser</title>
+<meta name="description" content="Play Blockcraft, a 2D Minecraft-style survival sandbox, right in your browser. Mine, craft tools, survive zombies, and find diamonds.">
+<style>
+  html,body{margin:0;height:100%;background:#000;overflow:hidden;font-family:monospace;user-select:none}
+  canvas#c{display:block;image-rendering:pixelated;cursor:crosshair}
+  canvas{image-rendering:pixelated}
+  #hud{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:4px;padding:4px;background:rgba(0,0,0,.6);border:3px solid #000}
+  .slot{width:48px;height:48px;position:relative;border:3px solid #555;background:#8b8b8b44;cursor:pointer;padding:0}
+  .slot.sel{border-color:#fff;box-shadow:0 0 0 2px #000}
+  .slot canvas{width:32px;height:32px;display:block;margin:5px auto}
+  .slot span{position:absolute;right:3px;bottom:1px;color:#fff;font:bold 12px monospace;text-shadow:1px 1px #000}
+  .slot i{position:absolute;left:3px;top:1px;color:#ccc;font-size:10px;font-style:normal}
+  #top{position:fixed;left:10px;top:8px;color:#fff;font-size:12px;text-shadow:1px 1px #000;line-height:1.6}
+  #top a{color:#ffd84a}
+  #goal{position:fixed;right:10px;top:8px;max-width:340px;color:#fff;font-size:12px;line-height:1.6;background:rgba(0,0,0,.6);border:2px solid #000;padding:6px 10px}
+  #goal b{color:#ffd84a}
+  #hearts{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);color:#e02424;font-size:18px;text-shadow:1px 1px #000;letter-spacing:1px}
+  #craftBtn{position:fixed;right:10px;bottom:12px;font:bold 12px monospace;padding:10px 12px;background:#b08850;color:#fff;border:3px solid #000;cursor:pointer;text-shadow:1px 1px #000}
+  #keys{position:fixed;right:10px;bottom:60px;color:#fff;font-size:11px;background:rgba(0,0,0,.55);padding:6px 8px;border:2px solid #000}
+  #craft{position:fixed;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.55)}
+  #craft>div{box-sizing:border-box;background:#c6c6c6;border:4px solid #000;box-shadow:inset -4px -4px #555,inset 4px 4px #fff;padding:16px;width:min(620px,94vw);max-width:94vw;max-height:86vh;max-height:86dvh;overflow:auto;overscroll-behavior:contain;color:#222}
+  #craft h2{margin:0 0 8px;font-size:16px;display:flex;justify-content:space-between;align-items:center}
+  #craft h3{margin:14px 0 6px;font-size:13px}
+  #craftClose{font:bold 14px monospace;background:#8b8b8b;border:3px solid #000;cursor:pointer;padding:2px 8px}
+  #recipes{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:6px}
+  .recipe{display:flex;gap:8px;align-items:center;text-align:left;padding:5px 8px;border:3px solid #373737;cursor:pointer;color:#fff;font:12px monospace;min-width:0}
+  .recipe>span{flex:1;min-width:0}
+  .recipe.ok{background:#3c8527;border-color:#1e4d12;box-shadow:inset 2px 2px #6cc349,inset -2px -2px #2a5e1c}
+  .recipe.ok:hover,.recipe.ok:focus-visible{border-color:#fff;background:#4a9e31}
+  .recipe.locked{background:#4a4a4a;border-color:#2a2a2a;cursor:not-allowed}
+  .recipe canvas{width:32px;height:32px;flex:none;background:#0003;padding:2px}
+  .recipe b{display:block;font-size:13px;text-shadow:1px 1px #000;overflow-wrap:anywhere}
+  .recipe.ok b{color:#fff}
+  .recipe.locked b{color:#e6e6e6}
+  .recipe small{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px;font-size:10px}
+  .recipe em{font-style:normal;padding:1px 4px;background:#0006;white-space:nowrap}
+  .recipe em.got{color:#b6f39a}
+  .recipe em.miss{color:#ff6b6b;font-weight:bold}
+  .recipe .tag{flex:none;font:bold 10px monospace;font-style:normal;color:#ffd84a;text-shadow:1px 1px #000}
+  .recipe .tag:empty{display:none}
+  #allinv{display:flex;flex-wrap:wrap;gap:4px}
+  #allinv .slot{background:#8b8b8b}
+  #craft p{font-size:11px;margin:6px 0 0}
+  #help{position:fixed;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.7);color:#fff;font-size:14px;text-align:center;line-height:2}
+  #help>div{background:#2e2e2e;border:4px solid #000;padding:24px 32px;box-shadow:inset -4px -4px #1a1a1a,inset 4px 4px #4a4a4a;max-width:92vw}
+  #help h1{color:#ffd84a;font-size:24px;margin:0 0 6px}
+  #help p{margin:0 0 10px;color:#ccc}
+  #help button{margin-top:12px;font:bold 16px monospace;padding:10px 24px;background:#17a34a;color:#fff;border:3px solid #000;cursor:pointer}
+  #touch{position:fixed;left:10px;bottom:84px;display:none;gap:6px}
+  #touch button{width:56px;height:56px;font-size:20px;background:rgba(0,0,0,.5);color:#fff;border:3px solid #000}
+  @media (pointer:coarse){#touch{display:flex}#keys{display:none}}
+  /* touch controls: one row above hearts + hotbar, movement left, actions right */
+  #touch{right:10px;bottom:112px;align-items:flex-end;pointer-events:none}
+  #touch button{box-sizing:border-box;width:50px;height:50px;min-width:44px;min-height:44px;flex:none;padding:0;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  #touch button[data-k="mode"]{margin-left:auto}
+  #sprintBtn[aria-pressed="true"]{background:#17a34a;border-color:#fff;box-shadow:0 0 0 2px #000}
+  #touch #craftBtn{position:static;width:auto;min-width:58px;padding:0 8px;font:bold 13px monospace;background:#b08850}
+  @media (max-width:900px){#touch{bottom:96px}}
+  @media (max-width:360px){#touch{gap:4px;left:6px;right:6px}#touch button{width:44px;height:44px}}
+  @media (max-width:400px){#hud{gap:2px;padding:2px}}
+  @media (max-width:900px){#keys{display:none}#goal{top:34px;left:10px;right:auto;max-width:none}.slot{width:38px;height:38px}.slot canvas{width:24px;height:24px;margin:4px auto}#hearts{bottom:66px}}
+</style>
+</head>
+<body>
+<canvas id="c" tabindex="0" aria-label="Blockcraft game world"></canvas>
+<div id="top"><a href="index.html">◀ Blockcraft</a> · <span id="info"></span></div>
+<div id="goal" aria-live="polite"></div>
+<div id="hearts" role="img" aria-label="Health"></div>
+<div id="hud" role="toolbar" aria-label="Hotbar"></div>
+<div id="keys" aria-hidden="true">C craft · Shift sprint · M sound · R new world · ? help</div>
+<button type="button" id="craftBtn">Craft (C)</button>
+<div id="touch"><button type="button" data-k="left" aria-label="Move left">◀</button><button type="button" data-k="jump" aria-label="Jump">▲</button><button type="button" data-k="right" aria-label="Move right">▶</button><button type="button" data-k="mode" aria-label="Switch between mining and placing">⛏</button><button type="button" data-k="sprint" id="sprintBtn" aria-label="Sprint" aria-pressed="false">»</button></div>
+<div id="craft" style="display:none" role="dialog" aria-label="Crafting and inventory"><div>
+  <h2>Crafting <button type="button" id="craftClose" aria-label="Close crafting">✕</button></h2>
+  <div id="recipes"></div>
+  <h3>Inventory</h3>
+  <div id="allinv"></div>
+  <p>Click an item to put it in your selected hotbar slot. Tools and swords need a crafting table within 8 blocks.</p>
+</div></div>
+<div id="help"><div>
+  <h1>BLOCKCRAFT</h1>
+  <p>Survive, craft better tools, and dig deep enough to find diamonds.</p>
+  A / D or ← → to move · Shift to sprint · W, Space or ↑ to jump<br>
+  Hold left click to mine or hit · Right click to place<br>
+  1–9 or mouse wheel for the hotbar · C or E to open crafting · M to mute<br>
+  Right click with an apple in hand to eat it · Jump + right-click below you to pillar up<br>
+  Stone needs a pickaxe. Zombies come out at night, so build a shelter and light it with torches.<br>
+  Your world saves automatically. Press R for a new world. Press ? or Esc to close this help.<br>
+  <button type="button" id="start">Play</button>
+</div></div>
+<script src="game.js"></script>
+</body>
+</html>

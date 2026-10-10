@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blockcraft | A Minecraft Server for Builders</title>
+<meta name="description" content="Blockcraft is a friendly Minecraft server with Survival, Creative, and Minigames. Grab the IP and start building, one block at a time.">
+<meta name="theme-color" content="#3b2a1a">
+<meta property="og:title" content="Blockcraft | A Minecraft Server for Builders">
+<meta property="og:description" content="Survival, Creative, and Minigames on a friendly Minecraft server.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%238b5a2b'/%3E%3Crect width='8' height='3' fill='%237ec850'/%3E%3Crect x='1' y='3' width='1' height='1' fill='%237ec850'/%3E%3Crect x='5' y='3' width='1' height='1' fill='%237ec850'/%3E%3Crect x='3' y='5' width='1' height='1' fill='%236b4423'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script>/* NIGHT PRELOAD (George) */try{var s=localStorage.getItem("bc-night");if(s==="1"||(s===null&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("night")}catch(e){}</script>
+</head>
+<body>
+<header class="nav" id="top">
+  <div class="logo">⛏ BLOCKCRAFT</div>
+  <nav aria-label="Main"><a href="play.html" class="nav-play">▶ Play</a><a href="#features">Features</a><a href="#blocks">Blocks</a><a href="#rules">How to Play</a><a href="#join">Join</a><a href="#faq">FAQ</a><button id="daynight" class="daynight" type="button" aria-pressed="false" aria-label="Night mode">☾</button></nav>
+</header>
+<main>
+<section class="hero">
+  <div class="ores" aria-hidden="true"><i class="ore dia"></i><i class="ore coal"></i><i class="ore gold"></i><i class="ore coal"></i><i class="ore dia"></i><i class="ore gold"></i><i class="ore coal"></i><i class="ore dia"></i></div>
+  <div class="sky" aria-hidden="true">
+    <div class="stars"></div><div class="moon"></div>
+    <div class="sun"></div>
+    <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  </div>
+  <h1>Build Anything.</h1>
+  <p>One block at a time.</p>
+  <a class="btn" href="play.html">Play Now</a>
+</section>
+<section id="features" class="section">
+  <h2>Features</h2>
+  <div class="features">
+    <article class="feat"><svg class="ficon" viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true"><path fill="#4ee1e6" d="M2 0h5v1h-5zM1 1h1v1h-1zM6 1h2v1h-2zM7 2h2v1h-2zM7 3h2v1h-2zM8 4h1v1h-1zM8 5h1v1h-1z"/><path fill="#8b5a2b" d="M6 2h1v1h-1zM5 3h1v1h-1zM4 4h1v1h-1zM3 5h1v1h-1zM2 6h1v1h-1zM1 7h1v1h-1zM0 8h1v1h-1z"/></svg><h3>Mine</h3><p>Dig for coal, iron, gold, and diamonds.</p></article>
+    <article class="feat"><svg class="ficon" viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true"><path fill="#b23a2a" d="M4 0h2v1h-2zM3 1h4v1h-4zM2 2h6v1h-6zM1 3h8v1h-8zM0 4h10v1h-10z"/><path fill="#c8a165" d="M1 5h8v1h-8zM1 6h1v1h-1zM4 6h2v1h-2zM8 6h1v1h-1zM1 7h1v1h-1zM4 7h2v1h-2zM8 7h1v1h-1zM1 8h5v1h-5zM8 8h1v1h-1zM1 9h5v1h-5zM8 9h1v1h-1z"/><path fill="#9fe0ff" d="M2 6h2v1h-2zM2 7h2v1h-2z"/><path fill="#6b4423" d="M6 6h2v1h-2zM6 7h2v1h-2zM6 8h2v1h-2zM6 9h2v1h-2z"/></svg><h3>Build</h3><p>Place anything you mine, block by block.</p></article>
+    <article class="feat"><svg class="ficon" viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true"><path fill="#3a2a1a" d="M3 1h4v1h1v1h1v4h-1v1h-1v1h-4v-1h-1v-1h-1v-4h1v-1h1z"/><path fill="#9a9a9a" d="M3 0h4v1h-4zM2 1h1v1h-1zM7 1h1v1h-1zM1 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM9 3h1v1h-1zM0 4h1v1h-1zM9 4h1v1h-1zM0 5h1v1h-1zM9 5h1v1h-1zM0 6h1v1h-1zM9 6h1v1h-1zM1 7h1v1h-1zM8 7h1v1h-1zM2 8h1v1h-1zM7 8h1v1h-1zM3 9h4v1h-4z"/><path fill="#e02424" d="M4 2h2v1h-2zM4 3h2v1h-2zM4 4h2v1h-2z"/><path fill="#d8d8d8" d="M3 4h1v1h-1zM6 4h1v1h-1zM3 5h4v1h-4zM4 6h2v1h-2zM4 7h2v1h-2z"/></svg><h3>Explore</h3><p>Every world is new: hills, caves, beaches.</p></article>
+    <article class="feat"><svg class="ficon" viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true"><path fill="#e02424" d="M1 1h2v1h-2zM6 1h2v1h-2zM0 2h1v1h-1zM3 2h1v1h-1zM5 2h4v1h-4zM0 3h1v1h-1zM2 3h7v1h-7zM0 4h9v1h-9zM1 5h7v1h-7zM2 6h5v1h-5zM3 7h3v1h-3zM4 8h1v1h-1z"/><path fill="#ff9a9a" d="M1 2h2v1h-2zM1 3h1v1h-1z"/></svg><h3>Free</h3><p>No download, no account. Saves in your browser.</p></article>
+  </div>
+  <div class="shots">
+    <figure><img src="assets/shot-day.jpg" width="800" height="450" loading="lazy" alt="Steve holding a stone pickaxe on a grassy hill next to a crafting table and oak trees"><figcaption>Day: punch trees, craft tools, dig in.</figcaption></figure>
+    <figure><img src="assets/shot-night.jpg" width="800" height="450" loading="lazy" alt="Night on a sandy hill lit by a torch while a zombie walks toward Steve"><figcaption>Night: light torches, the zombies are coming.</figcaption></figure>
+  </div>
+  <p class="shots-cta"><a class="btn play-big" href="play.html">▶ Play in Browser</a></p>
+</section>
+<section id="blocks" class="section">
+  <h2>Blocks</h2>
+  <ul class="blocks">
+    <li class="blk"><button class="cube-btn" type="button" aria-label="Spin Grass"><span class="cube b-grass" aria-hidden="true"><i class="f front"></i><i class="f side"></i><i class="f top"></i></span></button><h3>Grass</h3><p>Covers every hill. Mining it gives you dirt.</p><p class="tool">Mine by hand</p></li>
+    <li class="blk"><button class="cube-btn" type="button" aria-label="Spin Dirt"><span class="cube b-dirt" aria-hidden="true"><i class="f front"></i><i class="f side"></i><i class="f top"></i></span></button><h3>Dirt</h3><p>A few blocks thick under the grass. Great for quick shelters.</p><p class="tool">Mine by hand</p></li>
+    <li class="blk"><button class="cube-btn" type="button" aria-label="Spin Oak Log"><span class="cube b-log" aria-hidden="true"><i class="f front"></i><i class="f side"></i><i class="f top"></i></span></button><h3>Oak Log</h3><p>Punch a tree to start. Every run begins here.</p><p class="tool">Mine by hand</p></li>
+    <li class="blk"><button class="cube-btn" type="button" aria-label="Spin Stone"><span class="cube b-stone" aria-hidden="true"><i class="f front"></i><i class="f side"></i><i class="f top"></i></span></button><h3>Stone</h3><p>Everything below the dirt. Breaks into cobblestone.</p><p class="tool">Needs a wooden pickaxe</p></li>
+    <li class="blk"><button class="cube-btn" type="button" aria-label="Spin Coal Ore"><span class="cube b-coal" aria-hidden="true"><i class="f front"></i><i class="f side"></i><i class="f top"></i></span></button><h3>Coal Ore</h3><p>The most common ore. Coal makes torches and glass.</p><p class="tool">Needs a wooden pickaxe</p></li>
+    <li class="blk"><button class="cube-btn" type="button" aria-label="Spin Iron Ore"><span class="cube b-iron" aria-hidden="true"><i class="f front"></i><i class="f side"></i><i class="f top"></i></span></button><h3>Iron Ore</h3><p>Starts about 10 blocks down. Drops iron ingots.</p><p class="tool">Needs a stone pickaxe</p></li>
+    <li class="blk"><button class="cube-btn" type="button" aria-label="Spin Gold Ore"><span class="cube b-gold" aria-hidden="true"><i class="f front"></i><i class="f side"></i><i class="f top"></i></span></button><h3>Gold Ore</h3><p>Only shows up more than 28 blocks down.</p><p class="tool">Needs an iron pickaxe</p></li>
+    <li class="blk"><button class="cube-btn" type="button" aria-label="Spin Diamond Ore"><span class="cube b-diamond" aria-hidden="true"><i class="f front"></i><i class="f side"></i><i class="f top"></i></span></button><h3>Diamond Ore</h3><p>The rarest ore. Comes in veins of 2 to 4, more than 34 blocks deep.</p><p class="tool">Needs an iron pickaxe</p></li>
+  </ul>
+
+  <h3 class="craft-title">Dig guide</h3>
+  <p class="craft-sub">How deep to dig for each ore, counted in blocks below the surface where you are standing.</p>
+  <ol class="dig">
+    <li class="lay l-grass"><span class="d">0</span><b>Surface</b> Grass, dirt, sand, and trees</li>
+    <li class="lay l-stone"><span class="d">4+</span><b>Stone</b> Coal ore shows up anywhere in it</li>
+    <li class="lay l-iron"><span class="d">11+</span><b>Iron ore</b> Bring a stone pickaxe</li>
+    <li class="lay l-gold"><span class="d">29+</span><b>Gold ore</b> Iron pickaxe only</li>
+    <li class="lay l-dia"><span class="d">35+</span><b>Diamond ore</b> Iron pickaxe, torches, and a golden apple</li>
+    <li class="lay l-bed"><span class="d">~70</span><b>Bedrock</b> The bottom. It can't be mined</li>
+  </ol>
+  <h3 class="craft-title">Crafting in the game</h3>
+  <p class="craft-sub">Press <kbd>C</kbd> in the game, or tap Craft on a phone, to open crafting. Here is the path from your first log to a diamond sword. Apples drop from leaves sometimes.</p>
+  <ul class="recipes">
+    <li class="recipe">
+      <div class="craft" role="img" aria-label="Planks: 1 Oak Log, makes 4">
+        <span class="ins"><span class="slot"><i class="it it-logi"></i></span></span><span class="arrow" aria-hidden="true"></span><span class="slot out"><i class="it it-plank"></i><b>4</b></span>
+      </div>
+      <h4>Planks</h4><p>Your first craft, straight from a log.</p>
+    </li>
+    <li class="recipe">
+      <div class="craft" role="img" aria-label="Sticks: 2 Planks, makes 4">
+        <span class="ins"><span class="slot"><i class="it it-plank"></i><b>2</b></span></span><span class="arrow" aria-hidden="true"></span><span class="slot out"><i class="it it-stick"></i><b>4</b></span>
+      </div>
+      <h4>Sticks</h4><p>Handles for every tool and torch.</p>
+    </li>
+    <li class="recipe">
+      <div class="craft" role="img" aria-label="Crafting Table: 4 Planks">
+        <span class="ins"><span class="slot"><i class="it it-plank"></i><b>4</b></span></span><span class="arrow" aria-hidden="true"></span><span class="slot out"><i class="it it-table"></i></span>
+      </div>
+      <h4>Crafting Table</h4><p>Place it down. Tools need one nearby.</p>
+    </li>
+    <li class="recipe">
+      <div class="craft" role="img" aria-label="Wooden Pickaxe: 3 Planks plus 2 Sticks. Needs a crafting table nearby">
+        <span class="ins"><span class="slot"><i class="it it-plank"></i><b>3</b></span><span class="slot"><i class="it it-stick"></i><b>2</b></span></span><span class="arrow" aria-hidden="true"></span><span class="slot out"><i class="it it-pick-wood"></i></span>
+      </div>
+      <h4>Wooden Pickaxe</h4><p>Unlocks stone and coal.</p><p class="needs">Crafting table nearby</p>
+    </li>
+    <li class="recipe">
+      <div class="craft" role="img" aria-label="Stone Pickaxe: 3 Cobblestone plus 2 Sticks. Needs a crafting table nearby">
+        <span class="ins"><span class="slot"><i class="it it-cobble"></i><b>3</b></span><span class="slot"><i class="it it-stick"></i><b>2</b></span></span><span class="arrow" aria-hidden="true"></span><span class="slot out"><i class="it it-pick-stone"></i></span>
+      </div>
+      <h4>Stone Pickaxe</h4><p>Unlocks iron ore.</p><p class="needs">Crafting table nearby</p>
+    </li>
+    <li class="recipe">
+      <div class="craft" role="img" aria-label="Torches: 1 Coal plus 1 Sticks, makes 4">
+        <span class="ins"><span class="slot"><i class="it it-coal"></i></span><span class="slot"><i class="it it-stick"></i></span></span><span class="arrow" aria-hidden="true"></span><span class="slot out"><i class="it it-torch"></i><b>4</b></span>
+      </div>
+      <h4>Torches</h4><p>Caves get dark. Light them up.</p>
+    </li>
+    <li class="recipe">
+      <div class="craft" role="img" aria-label="Iron Pickaxe: 3 Iron Ingots plus 2 Sticks. Needs a crafting table nearby">
+        <span class="ins"><span class="slot"><i class="it it-ingot"></i><b>3</b></span><span class="slot"><i class="it it-stick"></i><b>2</b></span></span><span class="arrow" aria-hidden="true"></span><span class="slot out"><i class="it it-pick-iron"></i></span>
+      </div>
+      <h4>Iron Pickaxe</h4><p>Unlocks gold and diamond.</p><p class="needs">Crafting table nearby</p>
+    </li>
+    <li class="recipe">
+      <div class="craft" role="img" aria-label="Diamond Sword: 2 Diamonds plus 1 Sticks. Needs a crafting table nearby">
+        <span class="ins"><span class="slot"><i class="it it-dia"></i><b>2</b></span><span class="slot"><i class="it it-stick"></i></span></span><span class="arrow" aria-hidden="true"></span><span class="slot out"><i class="it it-sword"></i></span>
+      </div>
+      <h4>Diamond Sword</h4><p>The final goal. Zombies beware.</p><p class="needs">Crafting table nearby</p>
+    </li>
+      <li class="recipe">
+      <div class="craft" role="img" aria-label="Golden Apple: 4 Gold Ingots plus 1 Apple">
+        <span class="ins"><span class="slot"><i class="it it-gingot"></i><b>4</b></span><span class="slot"><i class="it it-apple"></i></span></span><span class="arrow" aria-hidden="true"></span><span class="slot out"><i class="it it-gapple"></i></span>
+      </div>
+      <h4>Golden Apple</h4><p>Heals you to full. Eat one before you dig for diamonds.</p>
+    </li>
+  </ul>
+</section>
+<section id="rules" class="section">
+  <h2>How to Play</h2>
+  <ol class="rules">
+    <li><span class="rnum">1</span><div><h3>Move</h3><p>A and D or the arrows to walk, Shift to sprint, and W, Space, or Up to jump.</p></div></li>
+    <li><span class="rnum">2</span><div><h3>Mine</h3><p>Hold left click. Stone needs a pickaxe, iron a stone one, diamond an iron one.</p></div></li>
+    <li><span class="rnum">3</span><div><h3>Build</h3><p>Pick a block with 1 to 9 or the mouse wheel, then right click to place it.</p></div></li>
+    <li><span class="rnum">4</span><div><h3>Craft</h3><p>Press C to craft. Planks, sticks, and a table first, then pickaxes, swords, and torches.</p></div></li>
+    <li><span class="rnum">5</span><div><h3>Survive</h3><p>Zombies come out at night. Fight back, hide with torches, and right click an apple to heal.</p></div></li>
+    <li><span class="rnum">6</span><div><h3>Settings</h3><p>Your world saves on its own. M mutes sound, R starts a new world, ? shows help.</p></div></li>
+    </ol>
+  <p class="phone-note"><b>On a phone:</b> use the ◀ ▲ ▶ buttons on the left to move and jump. On the right, tap ⛏ to switch between mining and placing, tap » to toggle sprint (it turns green when it's on), and tap Craft to open crafting. Tap any hotbar slot to pick it, and in place mode, tapping with an apple eats it.</p>
+</section>
+<section id="join" class="section">
+  <h2>Play Now</h2>
+  <div class="join">
+   <div class="join-main">
+    <p class="free">Free, no download, no account. Your world saves in this browser.</p>
+    <ol class="steps">
+      <li><span class="num">1</span><span class="sicon s-grass" aria-hidden="true"></span><span>Move with A and D or the arrow keys, jump with W or Space</span></li>
+      <li><span class="num">2</span><span class="sicon s-compass" aria-hidden="true"></span><span>Hold left click to mine, right click to place, 1 to 9 picks a block</span></li>
+      <li><span class="num">3</span><span class="sicon s-pearl" aria-hidden="true"></span><span>E crafts planks from logs, G smelts sand into glass</span></li>
+    </ol>
+    <a class="btn play-big" href="play.html">▶ Play in Browser</a>
+    <p class="touch-note">On a phone? Touch buttons show up in the game.</p>
+   </div>
+    <div class="creeper" aria-hidden="true" title="Sssss..."><i class="g2"></i><i class="g1"></i><i class="g2"></i><i class="g3"></i><i class="g1"></i><i class="g1"></i><i class="g3"></i><i class="g1"></i><i class="g2"></i><i class="g3"></i><i class="g1"></i><i class="g3"></i><i class="g1"></i><i class="g1"></i><i class="g1"></i><i class="g2"></i><i class="g2"></i><i class="k"></i><i class="k"></i><i class="g1"></i><i class="g1"></i><i class="k"></i><i class="k"></i><i class="g1"></i><i class="g3"></i><i class="k"></i><i class="k"></i><i class="g2"></i><i class="g1"></i><i class="k"></i><i class="k"></i><i class="g3"></i><i class="g1"></i><i class="g1"></i><i class="g3"></i><i class="k"></i><i class="k"></i><i class="g3"></i><i class="g3"></i><i class="g1"></i><i class="g3"></i><i class="g3"></i><i class="k"></i><i class="k"></i><i class="k"></i><i class="k"></i><i class="g2"></i><i class="g1"></i><i class="g1"></i><i class="g1"></i><i class="k"></i><i class="k"></i><i class="k"></i><i class="k"></i><i class="g3"></i><i class="g1"></i><i class="g2"></i><i class="g2"></i><i class="k"></i><i class="g1"></i><i class="g3"></i><i class="k"></i><i class="g1"></i><i class="g3"></i></div>
+  </div>
+</section>
+<section id="faq" class="section">
+  <h2>FAQ</h2>
+  <div class="faq">
+    <details><summary>Is Blockcraft free to play?</summary><p>Yes. It's free, runs in your browser, and needs no download or account.</p></details>
+    <details><summary>What do I need to play?</summary><p>Any modern browser on a computer. Phones get on-screen buttons, but a keyboard and mouse work best.</p></details>
+    <details><summary>Is this the real Minecraft?</summary><p>No. Blockcraft is a fan-made 2D sandbox inspired by Minecraft and isn't affiliated with Mojang or Microsoft.</p></details>
+    <details><summary>Where is my world saved?</summary><p>In your browser on this device. Clearing your browser data or switching browsers starts a new world.</p></details>
+    <details><summary>Is there multiplayer?</summary><p>Not yet. Right now Blockcraft is single player.</p></details>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="creeper peek" aria-hidden="true"><i class="g1"></i><i class="g3"></i><i class="g3"></i><i class="g1"></i><i class="g2"></i><i class="g3"></i><i class="g2"></i><i class="g3"></i><i class="g3"></i><i class="g1"></i><i class="g3"></i><i class="g1"></i><i class="g2"></i><i class="g2"></i><i class="g3"></i><i class="g1"></i><i class="g1"></i><i class="k"></i><i class="k"></i><i class="g3"></i><i class="g2"></i><i class="k"></i><i class="k"></i><i class="g3"></i><i class="g3"></i><i class="k"></i><i class="k"></i><i class="g2"></i><i class="g2"></i><i class="k"></i><i class="k"></i><i class="g3"></i><i class="g1"></i><i class="g1"></i><i class="g3"></i><i class="k"></i><i class="k"></i><i class="g1"></i><i class="g3"></i><i class="g2"></i><i class="g3"></i><i class="g1"></i><i class="k"></i><i class="k"></i><i class="k"></i><i class="k"></i><i class="g3"></i><i class="g1"></i><i class="g1"></i><i class="g3"></i><i class="k"></i><i class="g1"></i><i class="g2"></i><i class="k"></i><i class="g1"></i><i class="g2"></i></div>
+  <div class="foot-logo">⛏ BLOCKCRAFT</div>
+  <nav class="foot-nav" aria-label="Footer"><a href="#features">Features</a><a href="#blocks">Blocks</a><a href="#rules">How to Play</a><a href="#join">Join</a><a href="#faq">FAQ</a><a href="#top">Back to top ▲</a></nav>
+  <p>Not affiliated with Mojang or Microsoft.</p>
+</footer>
+<script>
+/* BLOCKS spin (Patricia) */
+document.querySelectorAll('.cube-btn').forEach(b => b.addEventListener('click', () => {
+  const c = b.querySelector('.cube'); c.classList.remove('spin'); void c.offsetWidth; c.classList.add('spin');
+}));
+</script>
+<script>/* HERO DAY/NIGHT (George) */
+(()=>{const b=document.getElementById("daynight"),root=document.documentElement;if(!b)return;
+const set=n=>{root.classList.toggle("night",n);b.setAttribute("aria-pressed",String(n));b.textContent=n?"\u2600":"\u263E";try{localStorage.setItem("bc-night",n?"1":"0")}catch(e){}};
+set(root.classList.contains("night"));b.addEventListener("click",()=>set(!root.classList.contains("night")));})();
+</script>
+</body>
+</html>
